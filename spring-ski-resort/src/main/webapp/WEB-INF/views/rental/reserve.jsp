@@ -172,29 +172,29 @@
 				<div id="innerbox" class="reserveBox" style="display: none;">
 					<input id="memberGradeInput" type="hidden" value="${mvo.memberGrade }">
 					
-					<div class="form-check">
-						<img alt="" onclick="updateFees(40000,30000,'오전권')" src="https://media.istockphoto.com/id/909307378/photo/winter-mountains-panorama-with-ski-slopes-and-ski-lifts.jpg?s=612x612&w=0&k=20&c=t3nSo1TuseE4gLDNtdoW46sqrD9XRDwKzPwijiIay-0=" style="width: 80px; height: 80px;">
-					  <input class="form-check-input" onclick="updateFees(40000,30000,'오전권')" type="radio" name="rentalLiftTicket" value="오전권" id="morningTicket">오전권
+					<div class="form-check" id="tiketImg1" onclick="getDivId(this)">
+						<img alt="" onclick="updateFees(40000,30000,'오전권')" src="/resources/etc/티켓.png" style="width: 270px; height: 80px;"><span>오전권</span>
+					  <input class="form-check-input" onclick="updateFees(40000,30000,'오전권')" type="radio" name="rentalLiftTicket" value="오전권" id="morningTicket">
 					</div>
-					<div class="form-check">
-						<img alt="" onclick="updateFees(50000,40000,'오후권')" src="https://media.istockphoto.com/id/909307378/photo/winter-mountains-panorama-with-ski-slopes-and-ski-lifts.jpg?s=612x612&w=0&k=20&c=t3nSo1TuseE4gLDNtdoW46sqrD9XRDwKzPwijiIay-0=" style="width: 80px; height: 80px;">
-					  <input class="form-check-input" onclick="updateFees(50000,40000,'오후권')" type="radio" name="rentalLiftTicket" value="오후권" id="afternoonTicket">오후권
+					<div class="form-check" id="tiketImg2" onclick="getDivId(this)">
+						<img alt="" onclick="updateFees(50000,40000,'오후권')" src="/resources/etc/티켓.png" style="width: 270px; height: 80px;"><span>오후권</span>
+					  <input class="form-check-input" onclick="updateFees(50000,40000,'오후권')" type="radio" name="rentalLiftTicket" value="오후권" id="afternoonTicket">
 					</div>
-					<div class="form-check">
-						<img alt="" onclick="updateFees(60000,50000,'주간권')" src="https://media.istockphoto.com/id/909307378/photo/winter-mountains-panorama-with-ski-slopes-and-ski-lifts.jpg?s=612x612&w=0&k=20&c=t3nSo1TuseE4gLDNtdoW46sqrD9XRDwKzPwijiIay-0=" style="width: 80px; height: 80px;">
-					  <input class="form-check-input" onclick="updateFees(60000,50000,'주간권')" type="radio" name="rentalLiftTicket" value="주간권" id="dayTimeTicket">주간권
+					<div class="form-check" id="tiketImg3" onclick="getDivId(this)">
+						<img alt="" onclick="updateFees(60000,50000,'주간권')" src="/resources/etc/티켓.png" style="width: 270px; height: 80px;"><span>주간권</span>
+					  <input class="form-check-input" onclick="updateFees(60000,50000,'주간권')" type="radio" name="rentalLiftTicket" value="주간권" id="dayTimeTicket">
 					</div>
-					<div class="form-check">
-						<img alt="" onclick="updateFees(40000,30000,'야간권')" src="https://media.istockphoto.com/id/909307378/photo/winter-mountains-panorama-with-ski-slopes-and-ski-lifts.jpg?s=612x612&w=0&k=20&c=t3nSo1TuseE4gLDNtdoW46sqrD9XRDwKzPwijiIay-0=" style="width: 80px; height: 80px;">
-					  <input class="form-check-input" onclick="updateFees(40000,30000,'야간권')" type="radio" name="rentalLiftTicket" value="야간권" id="nightTimeTicket">야간권
+					<div class="form-check" id="tiketImg4" onclick="getDivId(this)">
+						<img alt="" onclick="updateFees(40000,30000,'야간권')" src="/resources/etc/티켓.png" style="width: 270px; height: 80px;"><span>야간권</span>
+					  <input class="form-check-input" onclick="updateFees(40000,30000,'야간권')" type="radio" name="rentalLiftTicket" value="야간권" id="nightTimeTicket">
 					</div>
-					<div class="form-check">
-						<img alt="" onclick="updateFees(75000,65000,'종일권')" src="https://media.istockphoto.com/id/909307378/photo/winter-mountains-panorama-with-ski-slopes-and-ski-lifts.jpg?s=612x612&w=0&k=20&c=t3nSo1TuseE4gLDNtdoW46sqrD9XRDwKzPwijiIay-0=" style="width: 80px; height: 80px;">
-					  <input class="form-check-input" onclick="updateFees(75000,65000,'종일권')" type="radio" name="rentalLiftTicket" value="종일권" id="allDayTicket">종일권
+					<div class="form-check" id="tiketImg5" onclick="getDivId(this)">
+						<img alt="" onclick="updateFees(75000,65000,'종일권')" src="/resources/etc/티켓.png" style="width: 270px; height: 80px;"><span>종일권</span>
+					  <input class="form-check-input" onclick="updateFees(75000,65000,'종일권')" type="radio" name="rentalLiftTicket" value="종일권" id="allDayTicket">
 					</div>
-					<div class="form-check">
-						<img alt="" onclick="updateFees(380000,350000,'시즌권')" src="https://media.istockphoto.com/id/909307378/photo/winter-mountains-panorama-with-ski-slopes-and-ski-lifts.jpg?s=612x612&w=0&k=20&c=t3nSo1TuseE4gLDNtdoW46sqrD9XRDwKzPwijiIay-0=" style="width: 80px; height: 80px;">
-					  <input class="form-check-input" onclick="updateFees(380000,350000,'시즌권')" type="radio" name="rentalLiftTicket" value="시즌권" id="seasonTicket">시즌권
+					<div class="form-check" id="tiketImg6" onclick="getDivId(this)">
+						<img alt="" onclick="updateFees(380000,350000,'시즌권')" src="/resources/etc/티켓.png" style="width: 270px; height: 80px;"><span>시즌권</span>
+					  <input class="form-check-input" onclick="updateFees(380000,350000,'시즌권')" type="radio" name="rentalLiftTicket" value="시즌권" id="seasonTicket">
 					</div>
 					
 					<div class="input-group mb-3">

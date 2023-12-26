@@ -380,7 +380,7 @@ function shoppingBasket(itemNum, itemName, price, itemImageUrl) {
           
           return;
      }
-     document.getElementById('shoppingbagNum').innerText=itemsArray.length+1;
+     document.getElementById('shoppingbagNum').innerHTML = `<span>${itemsArray.length+1}</span>`;
 
      let itemsConfig = {
           rentalItemNum: itemNum,

@@ -583,7 +583,7 @@ a{
 .slide-text-subcontent{
 	display: none;
 	opacity: 1;
-	width: 1000px;
+	width: auto;
     white-space: normal;
     line-height: 35px;
     text-align: left

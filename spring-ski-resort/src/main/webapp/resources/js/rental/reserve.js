@@ -82,9 +82,36 @@ $(function () {
 //     inputElement.value = newCount;
 // }
 
+let selectedDiv = null;
+function getDivId(element) {
+    if (selectedDiv === element) {
+        // 이미 선택된 div를 클릭한 경우, 토글 효과로 테두리 제거
+        selectedDiv.style.border = '';
+        selectedDiv = null;
+    } else {
+        // 이전에 선택된 div의 테두리 초기화
+        if (selectedDiv !== null) {
+            selectedDiv.style.border = '';
+        }
+
+        // 현재 클릭한 div의 아이디를 얻어옴
+        let divId = element.id;
+        console.log(divId);
+
+        // 클릭한 div의 테두리를 빨간색으로 변경
+        element.style.border = '2px solid red';
+
+        // 선택된 div 업데이트
+        selectedDiv = element;
+    }
+}
+
 
 //요금 업데이트
 function updateFees(audult, kid, itemName) {
+    
+
+
     let adultFee = 0;
     let kidFee = 0;
 

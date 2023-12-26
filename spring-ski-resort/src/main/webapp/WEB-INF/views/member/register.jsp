@@ -37,9 +37,9 @@
 					    <div class=" mb-3">
 					      <form:input type="text" path="memberId"  onkeyup='chaekId()' class="form-control ${empty idError ? '' : 'is-invalid'}" id="inputMemberId" name="memberId" placeholder="아이디" aria-label="Recipient's username" aria-describedby="button-addon2"/>
 					      <button class="btn btn-primary" type="button" id="MemberIdCheck" style="display: none">중복확인</button>
-					    </div>
 					      <form:errors class="errorFont" path="memberId"></form:errors>
 					   	  <small class="" id="duplicateIdCheck"></small>
+					    </div>
 				    </div>
 				    
 					<div class="form-group registerBox rb-2">
@@ -51,16 +51,16 @@
 					<div class="form-group registerBox rb-4">
 					    <div>
 					      <form:input type="text" class="form-control ${empty aliasError ? '' : 'is-invalid'}" path="memberAlias" name="memberAlias" id="inputMemberAlias" placeholder="닉네임" aria-label="Recipient's username" aria-describedby="button-addon2" />
-					    </div>
 					      <form:errors class="errorFont" path="memberAlias"></form:errors>
+					    </div>
 				    </div>
 				    
 					<div class="form-group registerBox rb-5">
 						     <form:input type="email" path="memberEmail" readonly="true" class="form-control" name="memberEmail" id="inputMemberEmail" aria-describedby="emailHelp" placeholder="이메일" />
+						 	<form:errors class="errorFont" path="memberEmail"></form:errors>
 						     <button type="button" class="btn btn-primary" id="MemberEmailCheck" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="display: none;">
 							 	이메일 인증
 							 </button>
-						 <form:errors class="errorFont" path="memberEmail"></form:errors>
 				    </div>
 				    
 				    
@@ -119,6 +119,9 @@
 			
 			
 			<!-- 체크박스 -->
+				<div class="egloo">
+					<img alt="" src="/resources/etc/logo_detail.png" width="200" height="180">
+				</div>
 				<div class="termsMainBox">
 					
 				 	<div class="form-check all-check">
@@ -131,8 +134,8 @@
 						  약관 상세보기
 						</button>
 				    </div>
-					    <form:errors class="errorFont" path="memberTerms1"></form:errors><br>
-					    <form:errors class="errorFont" path="memberTerms2"></form:errors>
+					    <form:errors class="errorFont2" path="memberTerms1"></form:errors><br>
+					    <form:errors class="errorFont2" path="memberTerms2"></form:errors>
 				    <hr>
 				    <div class="termsBox">
 				    	<div class="tbBox tb-1">
@@ -159,12 +162,12 @@
 				    
 				    </div>
 
+					<div class="btnMainBox">
+						<button type="submit" class="btn btn-primary bb-1">가입완료</button> 
+						<a href="/"><button type="button" class="btn btn-primary bb-2">메인으로</button></a>
+					</div>
 				</div>
 			
-				<div class="btnMainBox">
-					<button type="submit" class="btn btn-primary bb-1">가입완료</button> 
-					<a href="/"><button type="button" class="btn btn-primary bb-2">메인으로</button></a>
-				</div>
 			</form:form>
 			
 		</div>
@@ -225,7 +228,7 @@
 		        <button type="button" class="btn-close" id="modalClose" data-bs-dismiss="modal" aria-label="Close" tabindex="-1"></button>
 		      </div>
 		      <div class="modal-body" tabindex="-1">
-		        <div class="form-group registerBox rb-5" tabindex="-1">
+		        <div class="form-group registerBox rb-5 emailModalBody" tabindex="-1">
 				     <label for="modalEmailCheck" class="form-label mt-4" tabindex="-1">Email</label>
 				     <div class="input-group mb-3" tabindex="-1">
 					     <input type="email" class="form-control" id="modalEmailCheck" aria-describedby="emailHelp" placeholder="이메일"  tabindex="-1" />

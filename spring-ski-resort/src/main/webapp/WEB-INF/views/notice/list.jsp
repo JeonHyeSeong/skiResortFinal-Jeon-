@@ -40,7 +40,7 @@
 		}
 	.section input[id="slide0${status.count}"]:checked ~ .slidewrap .slide-pagelist > li:nth-child(${status.count}) > label > div > img{
 		filter: brightness(150%);
-		box-shadow: 3px 3px 9px 6px #5b5b5b;
+		box-shadow: 0px 0px 9px 6px #5b5b5b;
 		}
 </style>
 </c:forEach>

@@ -129,6 +129,21 @@ a{
   	transform: translate(0, -50%);
   	color: #5f5f5f;
 }
+.notice-table-td-child-category{
+	padding: 10px;
+	position: absolute;
+  	top: 50%;
+  	transform: translate(0, -50%);
+  	color: #5f5f5f;
+  	display: flex;
+    column-gap: 10px;
+}
+.notice-table-td-child-category > select{
+	width: 130px;
+}
+.notice-table-td-child-category > div{
+	width: 600px;
+}
 .notice-table-point-file{	
 	color: #5f5f5f;
 	text-align: left;

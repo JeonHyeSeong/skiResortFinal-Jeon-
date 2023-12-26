@@ -53,8 +53,8 @@
 					  <div class="notice-table-th-child">카테고리</div>
 					</th>
 					<td class="notice-table-td">
-						<div class="mb-3 notice-table-td-child">
-							<select class="form-select" name="noticeCategory" id="inputGroupSelect01">
+						<div class="mb-3 notice-table-td-child-category">
+							<select class="form-select" name="noticeCategory" id="inputGroupSelect01" onchange="showEventInput()">
 								<option value="공지사항">공지사항</option>
 							  	<option value="이벤트">이벤트</option>
 							  	<option value="보도자료">보도자료</option>
@@ -62,6 +62,9 @@
 							  	<option value="채용정보">채용정보</option>
 							  	<option value="기타">기타</option>
 							</select>
+							<div>
+								<input type="text" class="form-control" id="noticeImageUrl" name="noticeImageUrl" placeholder="홈페이지 메인화면 이벤트 슬라이드에 등록될 이미지url주소를 입력해 주세요." style="display: none;">
+							</div>
 						</div>
 					</td>
 				</tr>
@@ -106,12 +109,6 @@
 						<div class="mb-3 notice-table-td-child">
 						  <input type="checkbox" name="noticePoint" id="noticePoint" value="Y"><span> 중요공지 게시 (※등록 순서대로 목록 최상단 게시)</span>
 						</div>
-						<!-- 중요공지 메인 이미지 파일 등록 라인 -->
-						  <!-- <div class="mb-3 notice-table-point-file">
-							  <input type="file" class="form-control" name="files" id="files" style="display: none;" multiple="multiple">
-							  <div id="point-file" class="notice-table-point-file-child"></div>
-						  <div class="mb-3 notice-table-point-file-child" id="fileZone">첨부파일 표시 영역</div>
-						  </div> -->
 					</td>
 				</tr>
 				<tr class="notice-table-tr">
@@ -185,7 +182,17 @@
 			alert('제목을 입력해 주세요.');
 		}
 </script>
+<script>
+        function showEventInput() {
+            var selectedValue = document.getElementById("inputGroupSelect01").value;
 
+            if (selectedValue === "이벤트") {
+                document.getElementById("noticeImageUrl").style.display = "block";
+            } else {
+                document.getElementById("noticeImageUrl").style.display = "none";
+            }
+        }
+</script>
 
 
 

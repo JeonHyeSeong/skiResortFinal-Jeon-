@@ -4,8 +4,8 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.web.www.repository.NoticeDAO">
 	<insert id="insert" parameterType="com.web.www.domain.board.NoticeVO">
-		insert into notice(notice_writer, notice_category, notice_title, notice_subcontent, notice_content, notice_point, notice_impact)
-		values(#{noticeWriter}, #{noticeCategory}, #{noticeTitle}, #{noticeSubcontent}, #{noticeContent}, #{noticePoint}, #{noticeImpact})
+		insert into notice(notice_writer, notice_category, notice_title, notice_subcontent, notice_content, notice_point, notice_image_url)
+		values(#{noticeWriter}, #{noticeCategory}, #{noticeTitle}, #{noticeSubcontent}, #{noticeContent}, #{noticePoint}, #{noticeImageUrl})
 	</insert>
 	
 	<select id="selectOneNoticeNum" resultType="long">
@@ -43,7 +43,8 @@
 	
 	<update id="noticeFileModify">
 		update notice set 
-		notice_category=#{noticeCategory}, notice_title=#{noticeTitle}, notice_content=#{noticeContent}, notice_mod_at=now(), notice_point=#{noticePoint} 
+		notice_category=#{noticeCategory}, notice_title=#{noticeTitle}, notice_subcontent=#{noticeSubcontent}, notice_content=#{noticeContent}, 
+		notice_mod_at=now(), notice_point=#{noticePoint}, notice_image_url=#{noticeImageUrl}
 		where notice_num = #{noticeNum}
 	</update>
 	

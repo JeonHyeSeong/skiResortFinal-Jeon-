@@ -11,6 +11,7 @@ window.onload = function () {
 
 
 const timer = ms => new Promise(res => setTimeout(res, ms))
+const timer2 = ms => new Promise(res => setTimeout(res, ms))
 async function load() {
     for (let i = 0; ; i++) {
         if (i == 10) {
@@ -40,6 +41,7 @@ async function load() {
                8 북방면
                9 내면
             */
+            
             const weatherDate = weatherInfo[i].weatherDate.slice(0, 4) + "년" + weatherInfo[i].weatherDate.slice(4, 6) + "월" + weatherInfo[i].weatherDate.slice(6, 8) + "일";
             var week_array = new Array('일', '월', '화', '수', '목', '금', '토');
             var region_grand_child = new Array('홍천읍', '화촌면', '두촌면', '내촌면', '서석면', '영귀미면', '남면', '서면', '북방면', '내면');
@@ -151,9 +153,11 @@ if (document.getElementById("alarm-bell")) {
             bellSwitch = 1;
             board.style.color="white"; boardtitle.style.color="white";
         }
-
+        document.getElementById('alarmTouch').style.display = 'block';
+        
     })
 }
+let alarmTouch = -1;
 async function memberAlarmSpread() {
     try {
         let result = await memberAlarmList();
@@ -170,7 +174,16 @@ async function memberAlarmSpread() {
             return;
         }
 
-        let str = `<ul>`;
+        let str = '';
+        if (alarmTouch == -1) {
+            str = `<ul id="alarmTouch" style="display:none;">`;
+            alarmTouch = 1;
+        } else {
+            str = `<ul id="alarmTouch">`;
+        }
+
+        
+
         for (let i = 0; i < result.length; i++) {
             //  href = "${result[i].alarmContentUrl}"
             str += `<li>`;
@@ -180,6 +193,8 @@ async function memberAlarmSpread() {
         }
         str += `</ul>`;
         div.innerHTML += str;
+
+        
 
         if (result.length > 0) {
             document.getElementById('alarm-mini-bell').style.display = 'block';
@@ -299,4 +314,143 @@ async function memberAlarmCheckCount(checkData) {
     }
 }
 
+function weatherBtn() {
+    console.log('테스트');
+    let weatherBtn = document.getElementById('weatherBox');
 
+    // 현재 marginLeft 값이 빈 문자열이라면 초기 값으로 설정
+    let currentMarginLeft = weatherBtn.style.marginLeft || '-300px';
+
+    if (currentMarginLeft === '-300px') {
+        weatherBtn.style.marginLeft = '0px';
+    } else {
+        weatherBtn.style.marginLeft = '-300px';
+    }
+    sideLoad();
+}
+async function sideLoad() {
+    let weatherSwitch = -1;
+    let forSwitch = -1;
+    for (let i = 0; ; i++) {
+        if (i == 10) {
+            i = 0;
+        }
+        weatherListSearch().then(weatherInfo => {
+            /*
+            regionNum; //지역번호
+            weatherHighTemp; // 최고온도 (지원안함)
+            weatherLowTemp; // 최저온도(지원안함)
+            weatherTemp; // 현재기온
+            weatherSkyStatus; // 하늘 상태 (1맑음 2구름조금 3구름많음 4흐림)
+            weatherRainStatus; //강수형태 (0없음,1비,2눈/비,3눈,4소나기)
+            weatherAmount; // 강수량
+            weatherPer; //강수량
+            weatherDate; // 마지막 갱신 날짜
+            weatherTime;	// 마지막 갱신 시간
+               0 홍천읍
+               1 화촌면
+               2 두촌면
+               3 내촌면
+               4 서석면
+               5 영귀미면
+               6 남면
+               7 서면
+               8 북방면
+               9 내면
+            */
+           var week_array = new Array('일', '월', '화', '수', '목', '금', '토');
+           var region_grand_child = new Array('홍천읍', '화촌면', '두촌면', '내촌면', '서석면', '영귀미면', '남면', '서면', '북방면', '내면');
+           var today_num = new Date().getDay();
+         
+            let box = document.getElementById("weatherList");
+            
+            box.innerHTML = '';
+            let str = '';
+
+            if (forSwitch == -1) {
+                
+                for (let i = 0; i < 5; i++){
+                    const weatherDate = weatherInfo[i].weatherDate.slice(0, 4) + "년" + weatherInfo[i].weatherDate.slice(4, 6) + "월" + weatherInfo[i].weatherDate.slice(6, 8) + "일";
+                    const weatherTime = weatherInfo[i].weatherTime.slice(0, 2) + ":" + weatherInfo[i].weatherTime.slice(2, 4);
+                    let Temp = weatherInfo[i].weatherTemp;
+                    let weatherStatus = weatherInfo[i].weatherRainStatus;
+                    if (weatherStatus == "없음") {
+                        weatherStatus = weatherInfo[i].weatherSkyStatus;
+                    }
+                    let weathericon = "";
+                    if (weatherStatus == "맑음") {
+                        weathericon = "brightness-high";
+                    } else if (weatherStatus == "구름조금") {
+                        weathericon = "cloud-sun";
+                    } else if (weatherStatus == "구름많음") {
+                        weathericon = "cloud";
+                    } else if (weatherStatus == "흐림") {
+                        weathericon = "cloud-haze";
+                    } else if (weatherStatus == "비") {
+                        weathericon = "cloud-drizzle";
+                    } else if (weatherStatus == "눈/비") {
+                        weathericon = "cloud-sleet";
+                    } else if (weatherStatus == "소나기") {
+                        weathericon = "cloud-rain-heavy";
+                    } else {
+                        weathericon = "cloud-snow";
+                    }
+                    if (weatherSwitch == -1) {
+                        str += "<p>" + weatherDate + "[" + week_array[today_num] + "]" + weatherTime + "갱신 </p>";
+                        weatherSwitch = 1;
+                    }
+                    str += `<div class="weatherDiv"${i == 4 ? ' style="border-bottom: none;"' : ''}>`;
+                    str += "<p>" + region_grand_child[i] + " 날씨</p>";
+                    str += '<div><i class="bi bi-' + weathericon + '"></i><span>' + weatherStatus + Temp + '°C' + '</span></div>';
+                    str += `</div>`;
+                }
+                box.innerHTML += str;
+                forSwitch = 1;
+            } else {
+                
+                for (let i = 5; i < 10; i++) {
+                    const weatherDate = weatherInfo[i].weatherDate.slice(0, 4) + "년" + weatherInfo[i].weatherDate.slice(4, 6) + "월" + weatherInfo[i].weatherDate.slice(6, 8) + "일";
+                    const weatherTime = weatherInfo[i].weatherTime.slice(0, 2) + ":" + weatherInfo[i].weatherTime.slice(2, 4);
+                    let Temp = weatherInfo[i].weatherTemp;
+                    let weatherStatus = weatherInfo[i].weatherRainStatus;
+                    if (weatherStatus == "없음") {
+                        weatherStatus = weatherInfo[i].weatherSkyStatus;
+                    }
+                    let weathericon = "";
+                    if (weatherStatus == "맑음") {
+                        weathericon = "brightness-high";
+                    } else if (weatherStatus == "구름조금") {
+                        weathericon = "cloud-sun";
+                    } else if (weatherStatus == "구름많음") {
+                        weathericon = "cloud";
+                    } else if (weatherStatus == "흐림") {
+                        weathericon = "cloud-haze";
+                    } else if (weatherStatus == "비") {
+                        weathericon = "cloud-drizzle";
+                    } else if (weatherStatus == "눈/비") {
+                        weathericon = "cloud-sleet";
+                    } else if (weatherStatus == "소나기") {
+                        weathericon = "cloud-rain-heavy";
+                    } else {
+                        weathericon = "cloud-snow";
+                    }
+                    if (weatherSwitch == 1) {
+                        str += "<p>" + weatherDate + "[" + week_array[today_num] + "]" + weatherTime + "갱신 </p>";
+                        weatherSwitch = -1;
+                    }
+                    str += `<div class="weatherDiv"${i == 9 ? ' style="border-bottom: none;"' : ''}>`;
+                    str += "<p>" + region_grand_child[i] + " 날씨</p>";
+                    str += '<div><i class="bi bi-' + weathericon + '"></i><span>' + weatherStatus + Temp + '°C' + '</span></div>';
+                    str += `</div>`;
+                }
+                box.innerHTML += str;
+                forSwitch = -1;
+            }
+
+
+
+        });
+
+        await timer2(9000);
+    }
+}

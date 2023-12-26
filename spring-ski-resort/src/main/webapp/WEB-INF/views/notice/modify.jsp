@@ -43,8 +43,8 @@
 					  <div class="notice-table-th-child">카테고리</div>
 					</th>
 					<td class="notice-table-td">
-						<div class="mb-3 notice-table-td-child">
-							<select class="form-select" name="noticeCategory" id="inputGroupSelect01">
+						<div class="mb-3 notice-table-td-child-category">
+							<select class="form-select" name="noticeCategory" id="inputGroupSelect01" onchange="showEventInput()">
 								<option ${nvo.noticeCategory ne null }>${nvo.noticeCategory }</option>
 							  	<c:choose>
 							  		<c:when test="${nvo.noticeCategory == '공지사항'}">
@@ -101,6 +101,9 @@
 							  		</c:when>
 							  	</c:choose>
 							</select>
+							<div>
+								<input type="text" value="${nvo.noticeImageUrl}" class="form-control" id="noticeImageUrl" name="noticeImageUrl" placeholder="홈페이지 메인화면 이벤트 슬라이드에 등록될 이미지url주소를 입력해 주세요." style="display: block;">
+							</div>
 						</div>
 					</td>
 				</tr>
@@ -245,6 +248,17 @@
 		if(isOk=="2"){
 			alert('제목을 입력해 주세요.');
 		}
+</script>
+<script>
+        function showEventInput() {
+            var selectedValue = document.getElementById("inputGroupSelect01").value;
+
+            if (selectedValue === "이벤트") {
+                document.getElementById("noticeImageUrl").style.display = "block";
+            } else {
+                document.getElementById("noticeImageUrl").style.display = "none";
+            }
+        }
 </script>
 <script type="text/javascript" src="/resources/js/notice/noticeFileModify.js"></script>
 <script type="text/javascript" src="/resources/js/notice/noticeFileUpload.js"></script>

@@ -78,6 +78,9 @@
 	position: relative;
 	z-index: 0;
 }
+.input-group{
+	width: 100%;
+}
 
 
 .box {
@@ -101,6 +104,8 @@
 
 #innerbox {
 	position: absolute;
+	border-top-left-radius: 30px;
+	border-top-right-radius: 30px;
 	left: 0;
 	top: -43%;
 	padding: 10px;
@@ -115,7 +120,6 @@
 
 .reserveBox .form-check {
     display: inline-block;
-    margin-right: 100px;
 }
 
 .reserveBox .form-check .form-check-input{
@@ -124,6 +128,22 @@
 
 .reserveBox .form-check img{
 	cursor: pointer;
+}
+.form-check{
+	position: relative;
+}
+
+.form-check img.active {
+    border: 2px solid red;
+}
+
+.form-check>span{
+	position: absolute;
+	font-family: 'Hahmlet', serif;
+	font-size: 20px;
+	font-weight: 600;
+	left: 70px;
+	top: 30px;
 }
 
 .daterangepicker {

@@ -72,7 +72,7 @@
 				<div class="box-title rental">LIFT TIKET</div>다이스키 리프트권은 여러분이 편리하게
 				스키장을 이용하고 다양한 슬로프를 즐길 수 있는 티켓입니다. 합리적인 가격으로 제공되며, 스키장의 모든 트레일과 슬로프에
 				빠르게 입장할 수 있어 스키 체험을 더욱 풍부하게 즐길 수 있습니다. <br><br>
-				<a class="index_move_text">예약하러 가기</a>
+				<a href="/rental/item" class="index_move_text">예약하러 가기</a>
 			</div>
 			<div class="rental_resrve_right_img"></div>	
 		</div>

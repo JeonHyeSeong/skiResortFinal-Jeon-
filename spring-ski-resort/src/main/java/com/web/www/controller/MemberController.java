@@ -88,7 +88,7 @@ public class MemberController {
 		
 		mvo.setMemberPwd(bcEncoder.encode(mvo.getMemberPwd()));
 		int isOk = msv.insertMember(mvo);
-		return "index";
+		return "redirect:/";
 	}
 
 	@GetMapping("/detail")

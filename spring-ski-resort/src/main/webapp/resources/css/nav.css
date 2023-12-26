@@ -208,4 +208,61 @@
 }
 
 
+.weatherContainer{
+	position: fixed;
+	margin-top: 96px;
+}
 
+.weatherBox{
+	position: relative;
+	margin-left: -300px;
+	width: 300px;
+	height: 700px;
+	border-bottom-right-radius: 30px;
+	background-color:  rgba(0, 0, 0, 0.6);
+	transition: 0.5s;
+}
+
+.half-moon-btn {
+	position: absolute;
+	right: -80px;
+    width: 80px;
+    height: 100px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.6); /* 배경색은 원하는 색으로 변경하세요 */
+    border-radius: 0 50% 50% 0; /* 상단 왼쪽, 상단 오른쪽, 하단 오른쪽, 하단 왼쪽의 순서로 지정 */
+    overflow: hidden;
+}
+
+.weatherList{
+	font-family: 'Bebas Neue', sans-serif;
+	color: white;
+	font-size: 20px;
+}
+
+.weatherDiv{
+	margin-bottom: 20px;
+	margin-left: 20px;
+	padding-bottom: 30px;
+	border-bottom: 1px solid gray; 
+}
+.weatherDiv>p{
+	margin-left: 20px;
+	margin-bottom: 20px;
+	font-size: 20px;
+}
+.weatherDiv>div>.bi{
+	font-size: 40px;
+	margin-left: 80px;
+	margin-right: 10px;
+}
+
+.weatherList>p{
+	padding-left: 30px;
+	padding-top: 20px;
+	margin-bottom: 20px;
+}
+
+#weather5{
+	border-bottom: none;
+}

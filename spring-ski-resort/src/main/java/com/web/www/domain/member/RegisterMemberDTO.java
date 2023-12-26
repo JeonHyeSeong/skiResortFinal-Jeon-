@@ -53,7 +53,7 @@ public class RegisterMemberDTO {
 	@NotBlank(message="나이 약관은 반드시 체크 되어야 합니다.")
 	private String memberTerms1; //이용약관
 	
-	@NotBlank(message="이용약관은 반드시 체크 되어야 합니다.")
+	@NotBlank(message="이용 약관은 반드시 체크 되어야 합니다.")
 	private String memberTerms2; //이용약관
 	private String memberTerms3; //이용약관
 	 

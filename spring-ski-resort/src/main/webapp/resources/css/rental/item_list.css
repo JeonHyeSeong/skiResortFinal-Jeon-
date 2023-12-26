@@ -27,7 +27,8 @@ position: absolute;
 	box-shadow: 0px 0px 1px;
 }
 .itemMenuContainer>ul{
-	float: right;
+	float: left;
+	margin-left: 500px;
 }
 
 .menu_text{
@@ -116,13 +117,13 @@ position: absolute;
 
 
 .shoppingBasket{
-	top:100px;
+	top: 95px;
 	position: fixed;
 	background-color: white;
 	border-radius: 5px;
 	width: 350px;
 	height: 800px;
-	border: 2px solid black;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.7); 
 	right: -350px;
 	z-index: 1;
 	font-family: 'Noto Sans KR', sans-serif;
@@ -200,6 +201,7 @@ position: absolute;
 	cursor: pointer;
 	color: black;
 }
+
 .top_menu{
 	font-size: 18px;
 	float: right;
@@ -244,10 +246,19 @@ position: absolute;
 }
 
 #shoppingbagNum{
+	position: relative;
 	background-color:red;
 	color: white;
 	border-radius: 100px;
-	width: 20px;
-	height: 20px;
+	width: 40px;
+	height: 40px;
 	padding:2px 5px;
+}
+
+#shoppingbagNum>span{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 25px;
 }
