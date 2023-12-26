@@ -26,7 +26,7 @@ public interface BusDAO {
 
 	void updateBusReserve(BusVO bvo);
 
-	BusInfoVO findBusInfo(long busReserveNum);
+	BusInfoVO findBusInfo(int busNum);
 
 	void updateBusInfo(BusInfoVO bivo);
 

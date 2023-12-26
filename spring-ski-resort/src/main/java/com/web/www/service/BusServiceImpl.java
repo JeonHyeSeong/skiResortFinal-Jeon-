@@ -63,7 +63,7 @@ public class BusServiceImpl implements BusService{
 			bvo.setBusCancel("Y");
 			bdao.updateBusReserve(bvo);
 			
-			BusInfoVO bivo = bdao.findBusInfo(busReserveNum);
+			BusInfoVO bivo = bdao.findBusInfo(bvo.getBusNum());
 			
 			if(bivo != null) {
 				int newBusCount = bivo.getBusPeopleLimit() + bvo.getBusPeople();
