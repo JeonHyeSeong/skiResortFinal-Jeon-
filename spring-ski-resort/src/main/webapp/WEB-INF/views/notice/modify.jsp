@@ -102,7 +102,12 @@
 							  	</c:choose>
 							</select>
 							<div>
-								<input type="text" value="${nvo.noticeImageUrl}" class="form-control" id="noticeImageUrl" name="noticeImageUrl" placeholder="홈페이지 메인화면 이벤트 슬라이드에 등록될 이미지url주소를 입력해 주세요." style="display: block;">
+								<c:if test="${nvo.noticeCategory == '이벤트' }">
+									<input type="text" value="${nvo.noticeImageUrl}" class="form-control" id="noticeImageUrl" name="noticeImageUrl" placeholder="홈페이지 메인화면 이벤트 슬라이드에 등록될 이미지url주소를 입력해 주세요." style="display: block;">
+								</c:if>
+								<c:if test="${nvo.noticeCategory != '이벤트' }">
+									<input type="text" value="${nvo.noticeImageUrl}" class="form-control" id="noticeImageUrl" name="noticeImageUrl" placeholder="홈페이지 메인화면 이벤트 슬라이드에 등록될 이미지url주소를 입력해 주세요." style="display: none;">
+								</c:if>
 							</div>
 						</div>
 					</td>

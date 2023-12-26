@@ -2,6 +2,7 @@ package com.web.www.repository;
 
 import java.util.List;
 
+import com.web.www.domain.board.PagingVO;
 import com.web.www.domain.pay.PayInfoVO;
 import com.web.www.domain.pay.RefundInfoVO;
 
@@ -59,6 +60,9 @@ public interface PayDAO {
 
 	//리프트권 구매여부 체크
 	int getLiftBuyCheck(long memberNum);
+	
+	//페이징 토탈 카운트
+	int getTotalCount(PagingVO pgvo);
 
 	
 
