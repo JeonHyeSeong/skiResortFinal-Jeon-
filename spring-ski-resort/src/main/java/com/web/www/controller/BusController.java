@@ -61,6 +61,7 @@ public class BusController {
 	@PostMapping("/busReserve")
 	public String busReservePost(BusVO bvo) {
 		
+		
 		int isOk = bsv.busReserve(bvo);
 		log.info("BusVO bvo = {}",bvo);
 		int isBus = 0;
@@ -70,7 +71,7 @@ public class BusController {
 	
 	@GetMapping("/cancel")
 	public String busReserveCancel(@RequestParam("busReserveNum") long busReserveNum, @AuthUser MemberVO mvo, RedirectAttributes rttr) {
-		
+		log.info("mvo = {}",mvo);
 		bsv.busCancel(busReserveNum, mvo.getMemberNum());
 //		if(bvo == null) {
 //			rttr.addFlashAttribute("isOk", 1);
