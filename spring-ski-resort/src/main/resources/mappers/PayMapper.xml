@@ -14,6 +14,10 @@
   		select * from pay where member_num = #{memberNum}
   	</select>
   	
+  	<select id="getTotalCount" resultType="int">
+  		select count(member_num) from pay
+  	</select>
+  	
   	<insert id="registerRefund">
   		insert into refund(refund_imp_uid, pay_merchant_uid, refund_reason, refund_name, refund_amount, refund_type, refund_name_type)
   		value (#{refundImpUid}, #{payMerchantUid}, #{refundReason}, #{refundName}, #{refundAmount}, #{refundType}, #{refundNameType})

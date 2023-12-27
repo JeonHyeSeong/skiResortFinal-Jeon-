@@ -3,6 +3,8 @@ package com.web.www.controller;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -15,11 +17,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.web.www.domain.board.PagingVO;
 import com.web.www.domain.member.AuthUser;
 import com.web.www.domain.member.MemberVO;
 import com.web.www.domain.pay.PayInfoVO;
 import com.web.www.domain.pay.PayResponseDTO;
 import com.web.www.domain.pay.RefundInfoVO;
+import com.web.www.handler.PagingHandler;
 import com.web.www.service.MemberService;
 import com.web.www.service.PayService;
 
@@ -37,7 +41,7 @@ public class PayController {
 	
 	//유저 결제 상세 페이지
 	@GetMapping("/memberPayList")
-	public String memberPayList(@AuthUser MemberVO mvo, Model model) {
+	public String memberPayList(PagingVO pgvo, @AuthUser MemberVO mvo, Model model) {
 		MemberVO detailMvo = msv.getUser(mvo.getMemberId() , mvo.getMemberType());
 		List<PayInfoVO> pivoList = psv.getPayInfoList(mvo.getMemberNum());
 		log.info("결제정보 조회 = {}", pivoList);
@@ -50,6 +54,11 @@ public class PayController {
 		model.addAttribute("sum", sum);
 		model.addAttribute("mvo", detailMvo);
 		model.addAttribute("pivoList" , pivoList);
+		//페이징 라인
+		int totalCount = psv.getTotalCount(pgvo);
+		PagingHandler ph = new PagingHandler(pgvo, totalCount);
+		log.info(">>>>ph>>>"+ ph);
+		model.addAttribute("ph",ph);
 		return "/member/memberPayList";
 	}
 	

@@ -76,30 +76,54 @@
 							</c:forEach>
 						</tbody>
 					</table>	
-					<div>
-						  <ul class="pagination">
-						    <li class="page-item disabled">
-						      <a class="page-link" href="#">&laquo;</a>
-						    </li>
-						    <li class="page-item active">
-						      <a class="page-link" href="#">1</a>
-						    </li>
-						    <li class="page-item">
-						      <a class="page-link" href="#">2</a>
-						    </li>
-						    <li class="page-item">
-						      <a class="page-link" href="#">3</a>
-						    </li>
-						    <li class="page-item">
-						      <a class="page-link" href="#">4</a>
-						    </li>
-						    <li class="page-item">
-						      <a class="page-link" href="#">5</a>
-						    </li>
-						    <li class="page-item">
-						      <a class="page-link" href="#">&raquo;</a>
-						    </li>
-						  </ul>
+<!-- 					<div> -->
+<!-- 						  <ul class="pagination"> -->
+<!-- 						    <li class="page-item disabled"> -->
+<!-- 						      <a class="page-link" href="#">&laquo;</a> -->
+<!-- 						    </li> -->
+<!-- 						    <li class="page-item active"> -->
+<!-- 						      <a class="page-link" href="#">1</a> -->
+<!-- 						    </li> -->
+<!-- 						    <li class="page-item"> -->
+<!-- 						      <a class="page-link" href="#">2</a> -->
+<!-- 						    </li> -->
+<!-- 						    <li class="page-item"> -->
+<!-- 						      <a class="page-link" href="#">3</a> -->
+<!-- 						    </li> -->
+<!-- 						    <li class="page-item"> -->
+<!-- 						      <a class="page-link" href="#">4</a> -->
+<!-- 						    </li> -->
+<!-- 						    <li class="page-item"> -->
+<!-- 						      <a class="page-link" href="#">5</a> -->
+<!-- 						    </li> -->
+<!-- 						    <li class="page-item"> -->
+<!-- 						      <a class="page-link" href="#">&raquo;</a> -->
+<!-- 						    </li> -->
+<!-- 						  </ul> -->
+<!-- 						</div> -->
+						<!-- 페이징 라인 -->				
+						<div class="qna-paging-container">
+						  <nav aria-label="Page navigation example">
+						  	<!-- 이전 -->
+						  	<ul class="pagination qna-paging-ul">
+						  		<li class="page-item ${(ph.prev eq false) ? 'disabled' : '' }">
+							  		<a class="page-link" href="/pay/memberPayList?pageNo=${ph.startPage - 1 }&qty=${ph.pgvo.qty}&type=${ph.pgvo.type}&keyword=${ph.pgvo.keyword}" aria-label="Previous">
+							  		<span aria-hidden="true">&laquo;</span>
+							  		</a>
+						  		</li>
+						  		<c:forEach begin="${ph.startPage }" end="${ph.endPage }" var="i">
+				  					<li>
+				  						<a class="page-link" href="/pay/memberPayList?pageNo=${i }&qty=${ph.pgvo.qty}&type=${ph.pgvo.type}&keyword=${ph.pgvo.keyword}">${i }</a>
+				  					</li>
+				  				</c:forEach>
+				  			<!-- 다음 -->
+				  				<li class="page-item ${(ph.next eq false) ? 'disabled' : ''}">
+				  					<a class="page-link" href="/pay/memberPayList?pageNo=${ph.endPage + 1 }&qty=${ph.pgvo.qty}&type=${ph.pgvo.type}&keyword=${ph.pgvo.keyword}" aria-label="Next">
+				        			<span aria-hidden="true">&raquo;</span>
+				    				</a>
+				  				</li>	
+						  	</ul>
+						  </nav>
 						</div>		
 					</div>
 					

@@ -24,6 +24,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.web.www.domain.alarm.AlarmVO;
+import com.web.www.domain.board.PagingVO;
 import com.web.www.domain.pay.PayInfoVO;
 import com.web.www.domain.pay.RefundInfoVO;
 import com.web.www.domain.rental.ItemsArray;
@@ -477,6 +478,14 @@ public class PayServiceImpl implements PayService{
 		conn.disconnect();
 		
 		
+	}
+
+
+
+	@Override
+	public int getTotalCount(PagingVO pgvo) {
+		// TODO Auto-generated method stub
+		return pdao.getTotalCount(pgvo);
 	}
 
 	

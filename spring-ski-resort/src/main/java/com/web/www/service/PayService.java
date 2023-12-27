@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 
+import com.web.www.domain.board.PagingVO;
 import com.web.www.domain.pay.PayInfoVO;
 import com.web.www.domain.pay.RefundInfoVO;
 import com.web.www.domain.rental.RentalLiftVO;
@@ -29,5 +30,8 @@ public interface PayService {
 	
 	//멤버의 리프트권 활성화 여부
 	int getLiftBuyCheck(long memberNum);
+	
+	//페이징 토탈카운트
+	int getTotalCount(PagingVO pgvo);
 
 }

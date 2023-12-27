@@ -501,6 +501,7 @@ a{
 	}
 .section .slidelist > li > a img {
 	width:100%;
+	transform: translate(0, -15%);
 	}
 .section .slidelist label {
 	border: 1px solid white;
