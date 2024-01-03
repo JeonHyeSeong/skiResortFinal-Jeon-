@@ -52,7 +52,7 @@
 						</button>
 					<ul id="ul-menu3">
 						<li>
-							<a href=""><span>렌탈관리</span></a>
+							<a href="/developer/settingRental"><span>렌탈관리</span></a>
 						</li>
 						<li>
 							<a href=""><span>리프트관리</span></a>

@@ -181,6 +181,10 @@ public class AdminController {
 	 * @Developer 관리자 페이지 "렌탈/리프트 관리"
 	 *************************************/
 	
+	@GetMapping("/settingRental")
+	public String RentalList(Model m ,@AuthUser MemberVO mvo) {
+		return "/developer/settingRental";
+	}
 	
 	
 	
